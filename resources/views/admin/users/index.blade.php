@@ -3,7 +3,10 @@
 @section('title', 'Usuários')
 
 @section('content_header')
-    <h1>Meus Usuários:</h1>
+    <h1>
+        Meus Usuários: <br>
+        <a href="{{ route('users.create') }}" class="btn btn-sm btn-success">Novo Usuário</a>
+    </h1>
 @endsection
 
 @section('content')
