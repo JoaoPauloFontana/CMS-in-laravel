@@ -29,4 +29,6 @@ Route::prefix('painel')->group(function(){
     Route::post('register', [RegisterController::class, 'register']);
 
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::get('users', [UserController::class, 'index'])->name('users');
 });
