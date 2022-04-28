@@ -20,11 +20,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::prefix('painel')->group(function(){
-    Route::get('/', [AdminHomeController::class, 'index'])->name('HOME');
+    Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
 
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'authenticate']);
 
     Route::get('register', [RegisterController::class, 'index'])->name('resgiter');
     Route::post('register', [RegisterController::class, 'register']);
+
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
