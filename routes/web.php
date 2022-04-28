@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Site\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,10 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::prefix('painel')->group(function(){
     Route::get('/', [AdminHomeController::class, 'index'])->name('HOME');
+
     Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('login', [LoginController::class, 'authenticate']);
+
+    Route::get('register', [RegisterController::class, 'index'])->name('resgiter');
+    Route::post('register', [RegisterController::class, 'register']);
 });
