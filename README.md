@@ -53,9 +53,9 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## About Api CRUD
+## About CMS - Content Management System
 
-Educational purposes. It is a task api in Laravel.
+Educational purposes. CMS stands for Content Management System, or Content Management System. In a very straightforward way, a CMS allows you to create, organize, publish and delete content from your website.
 
 ## Installation
 
