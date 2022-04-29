@@ -57,6 +57,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 Educational purposes. CMS stands for Content Management System. In a very straightforward way, a CMS allows you to create, organize, publish and delete content from your website.
 
+In the project, for the dashboard, I am using the adminLte (composer library).
+
 ## Installation
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/5.4/installation#installation)
