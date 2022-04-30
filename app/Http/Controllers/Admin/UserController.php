@@ -24,9 +24,11 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(10);
+        $loggedId = intval(Auth::id());
 
         return view('admin.users.index', [
-            'users' => $users
+            'users' => $users,
+            'loggedId' => $loggedId
         ]);
     }
 
