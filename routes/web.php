@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Site\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,6 @@ Route::prefix('painel')->group(function(){
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::resource('users', UserController::class);
+
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
 });
