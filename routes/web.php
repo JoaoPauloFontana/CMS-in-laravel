@@ -35,4 +35,5 @@ Route::prefix('painel')->group(function(){
     Route::resource('users', UserController::class);
 
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('profilesave', [ProfileController::class, 'save'])->name('profile.save');
 });
