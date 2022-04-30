@@ -93,6 +93,9 @@ class ProfileController extends Controller
             }
 
             $user->save();
+
+            return redirect()->route('profile')
+                ->with('warning', 'Informações alteradas com sucesso!');
         }
 
         return redirect()->route('profile');
