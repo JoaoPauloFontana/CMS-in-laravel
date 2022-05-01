@@ -97,7 +97,15 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $page = Page::find($id);
+
+        if($page){
+            return view('admin.pages.edit', [
+                'page' => $page
+            ]);
+        }
+
+        return redirect()->route('pages.index');
     }
 
     /**
@@ -109,7 +117,46 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $page = Page::find($id);
+
+        if($page){
+            $data = $request->only([
+                'title',
+                'body'
+            ]);
+
+            if($data['title'] !== $page->title){
+                $data['slug'] = Str::slug($data['title'], '-');
+
+                $validator = Validator::make($data, [
+                    'title' => ['required', 'string', 'max:100'],
+                    'body' => ['string'],
+                    'slug' => ['required', 'string', 'max:100', 'unique:pages']
+                ]);
+
+                $page->slug = $data['slug'];
+            }else{
+                $validator = Validator::make($data, [
+                    'title' => ['required', 'string', 'max:100'],
+                    'body' => ['string']
+                ]);
+            }
+
+            if($validator->fails()){
+                return redirect()->route('pages.edit', [
+                    'page' => $id
+                ])
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            $page->title = $data['title'];
+            $page->body = $data['body'];
+
+            $page->save();
+        }
+
+        return redirect()->route('pages.index');
     }
 
     /**
@@ -120,6 +167,9 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
+        $page = Page::find($id);
+        $page->delete();
 
+        return redirect()->route('pages.index');
     }
 }
