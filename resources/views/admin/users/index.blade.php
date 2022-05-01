@@ -21,10 +21,10 @@
                 </tr>
                 @foreach ($users as $user)
                     <tr>
-                        <th>{{ $user->id }}</th>
-                        <th>{{ $user->name }}</th>
-                        <th>{{ $user->email }}</th>
-                        <th>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>
                             <a href="{{ route('users.edit', ['user' => $user->id]) }}"
                                 class="btn btn-sm btn-info">Editar</a>
                             @if ($loggedId !== intval($user->id))
@@ -35,7 +35,7 @@
                                     <button class="btn btn-sm btn-danger">Excluir</button>
                                 </form>
                             @endif
-                        </th>
+                        </td>
                     </tr>
                 @endforeach
             </table>

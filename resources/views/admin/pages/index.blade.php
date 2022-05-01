@@ -14,24 +14,27 @@
         <div class="card-body">
             <table class="table table-hover">
                 <tr>
-                    <th>ID</th>
+                    <th width="50">ID</th>
                     <th>Título</th>
-                    <th>Ações</th>
+                    <th width="200">Ações</th>
                 </tr>
                 @foreach ($pages as $page)
                     <tr>
-                        <th>{{ $page->id }}</th>
-                        <th>{{ $page->title }}</th>
-                        <th>
+                        <td>{{ $page->id }}</td>
+                        <td>{{ $page->title }}</td>
+                        <td>
+                            <a href="" target="_blank" class="btn btn-sm btn-success">Ver</a>
+
                             <a href="{{ route('pages.edit', ['page' => $page->id]) }}"
                                 class="btn btn-sm btn-info">Editar</a>
+                                
                             <form class="d-inline" action="{{ route('pages.destroy', ['page' => $page->id]) }}"
                                 method="POST" onsubmit="return confirm('Tem certeza que deseja excluir essa página?')">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-sm btn-danger">Excluir</button>
                             </form>
-                        </th>
+                        </td>
                     </tr>
                 @endforeach
             </table>
