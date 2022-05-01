@@ -98,3 +98,7 @@ Start the local development server
     php artisan serve
 
 You can now access the server at http://localhost:8000
+
+## Database
+
+**P.s: In your database, remember to create the table "users" and "settings".**
