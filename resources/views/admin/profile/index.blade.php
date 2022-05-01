@@ -19,9 +19,9 @@
     @endif
 
     @if (session('warning'))
-    <div class="alert alert-success">
-        {{ session('warning') }}
-    </div>
+        <div class="alert alert-success">
+            {{ session('warning') }}
+        </div>
     @endif
 
     <form action="{{ route('profile.save') }}" method="POST" class="form-horizontal">
