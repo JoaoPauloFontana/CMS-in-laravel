@@ -38,7 +38,10 @@ class HomeController extends Controller
         $userCount = User::count();
 
         $pagePie = [];
-        $visitsAll = Visitor::selectRaw('page, count(page) as c')->groupBy('page')->get();
+        $visitsAll = Visitor::selectRaw('page, count(page) as c')
+            ->where('date_access', '>=', $dateInterval)
+            ->groupBy('page')
+            ->get();
 
         foreach($visitsAll as $visit){
             $pagePie[$visit['page']] = intval($visit['c']);
