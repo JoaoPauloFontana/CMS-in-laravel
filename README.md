@@ -101,8 +101,10 @@ You can now access the server at http://localhost:8000
 
 ## Database
 
-**P.s: In your database, remember to create the table "users" and "settings".**
+**P.s: In your database, remember to create the table "users", "settings" and "pages".**
 
 users: id, name, email, password, remember_token and admin.
 
 settings: id, name and contents.
+
+pages: id, title, slug and body.
