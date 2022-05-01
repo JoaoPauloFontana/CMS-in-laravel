@@ -241,7 +241,8 @@ return [
         [
             'text'        => 'Minhas Páginas',
             'url'         => 'painel/pages',
-            'icon'        => 'far fa-fw fa-file'
+            'icon'        => 'far fa-fw fa-file',
+            'can'         => 'edit-pages'
         ],
         [
             'text'        => 'Meus Usuários',
