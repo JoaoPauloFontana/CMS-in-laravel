@@ -108,3 +108,5 @@ users: id, name, email, password, remember_token and admin.
 settings: id, name and contents.
 
 pages: id, title, slug and body.
+
+**P.s: Project without migration**
